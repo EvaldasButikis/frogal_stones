@@ -2,7 +2,7 @@ Idea: lookgn at music genres and possibly and the transition of genres
 Different ways of measuring popularity of genres  
 
 Other: what profession did people born in utrecht pursue 
-Other: change in religious for area 
+Other: change in religious belief for area 
 Other: blues musicians as christian 
 Other: map of censhorship to the data 
 
@@ -38,5 +38,18 @@ Both genres on a graph (* where is the relation?)
 *limitation: occupation could be different at the begin/end of years active 
 
 
-Knowing that rock came from blues: is this reflected in the number of artists (rock vs blues) over time, or is it just because there are bigger rock 
+Rock into Punk 
+Rock into heavy metal 
+if more time: 
+Knowing that rock came from blues: is this reflected in the number of artists (rock vs blues) over time, [or is it just because there are more popular rock artists
+
+
+
+Rock into Punk 
+In relation to the year before, 
+
+general emergence tendencies in music genres: 
+Mapping the emergence (start year) of seperately rock and punk artists 
+to make a line graph (line for each graph)
+
 
