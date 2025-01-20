@@ -1,0 +1,55 @@
+Idea: lookgn at music genres and possibly and the transition of genres 
+Different ways of measuring popularity of genres  
+
+Other: what profession did people born in utrecht pursue 
+Other: change in religious belief for area 
+Other: blues musicians as christian 
+Other: map of censhorship to the data 
+
+LABELS:
+If Owl sharp: just Musical artist is usually just the artist  [cause Musician - can also be producer, etc.]
+If Ontology/occupation/label then also musician 
+
+For genre:
+ontology/genrelabel 
+
+
+Define what genres 
+Wikepedia boom? For bias : how many people are counted for each year 
+Look at proportion 
+
+
+Main idea: transition of blues into subgenres of blues 
+Rq: how did the popularity of blues 
+
+How can we characterize the popularity of the genre2 emerging from genre1?
+Data Q
+
+Remake dictionary! 
+Filter data for musical artists/musicians (see labels): 
+Filter data for blues under genre: ontology/genre_label, could string it for just eg. “blues” in eg. “bluesrock”
+Find start year (first year in years active)* and end year 
+
+Both genres on a graph (* where is the relation?) 
+
+
+
+
+*limitation: occupation could be different at the begin/end of years active 
+
+
+Rock into Punk 
+Rock into heavy metal 
+if more time: 
+Knowing that rock came from blues: is this reflected in the number of artists (rock vs blues) over time, [or is it just because there are more popular rock artists
+
+
+
+Rock into Punk 
+In relation to the year before, 
+
+general emergence tendencies in music genres: 
+Mapping the emergence (start year) of seperately rock and punk artists 
+to make a line graph (line for each graph)
+
+
