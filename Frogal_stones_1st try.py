@@ -5,40 +5,28 @@ import csv
 with open("People/A_people.json", encoding='utf-8') as file:
         As = json.load(file)
 
-all_years =list(range(1, 2025))
-results = {}
+dictio_per_year = {}
+results={}
+
 
 for people in As:
     if "ontology/birthYear" in people:
-        for year in all_years:
-            haha_year= 0
-            if people["ontology/birthYear"]== year:
-                 haha_year=+1
-            results[year]= haha_year
-             
+        if 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type_label' in people and any(job == "musical artist" for job in people['http://www.w3.org/1999/02/22-rdf-syntax-ns#type_label']):
+            year = people["ontology/birthYear"]
+            try:
+                year = int(year)
+            except:
+                continue
+            if year not in dictio_per_year:
+                dictio_per_year[year] = 0
+            dictio_per_year[year]+=1
+                    
+
+print(dictio_per_year) 
                         
 
-print(results)
             
              
 
  
 
-''' print(precipi_per_month)
-
-    relative_precipi = {}
-    for date in all_dates:
-        relative_precipi[date] = precipi_per_month[date]/precipi_total
-
-    print(relative_precipi)
-            
-    results[station["Location"]]={
-         "precipitation_per_month" :precipi_per_month,
-         "relative_precipitation":relative_precipi,
-         'total_precipitation':precipi_total
-
-    }
-
-
-with open('results.json', 'w', encoding='utf-8') as file:
-    json.dump(results, file,indent=4)'''
