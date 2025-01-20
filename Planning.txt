@@ -7,7 +7,7 @@ Other: blues musicians as christian
 Other: map of censhorship to the data 
 
 LABELS:
-If Owl sharp: just Musical artist is usually just the artist  [cause Musician - can also be producer, etc.]
+If owl#Thing: just Musical artist is usually just the artist  [cause Musician - can also be producer, etc.]
 If Ontology/occupation/label then also musician 
 
 For genre:
@@ -50,6 +50,31 @@ In relation to the year before,
 
 general emergence tendencies in music genres: 
 Mapping the emergence (start year) of seperately rock and punk artists 
+
+protoRQ: Is the emergence of the punk genre, a subgenre of rock, reflected in the emergence of punk musicians?
+Considering punk (& metal) as a subgenre of rock, is this connection reflected in the emergence trends of musicians?
+Are rock's subgenres reflected in the genre's emerging musicians?
+How can we characterize the emergence of rock subgenres (punk, metal) through 
+
+
+WORKING QUESTIONS:
+RQ: What does the emergence of a child genre look like in relation to its parent genre? 
+DQ: What is the effect of punk on rock in terms of the number of musicans identifying with the respective labels? (in Wikepedia)
+
+where the number of emergences: is reflective of the genre's popularity*
+*LIMITATION: only one mode of popularity (when artists started career/band)
+
+operationalization:
+punk: wider label, incl "punkrock"
+rock: wider label, excl "punkrock"
+
+subRQ: 
+When did they switch over?
+subDQ: year where significant increase/peak in musicians identifying with the punk label
+When did the emergence of punk artists peak in comparison to the continuous emergences of rock artists? 
+
 to make a line graph (line for each graph)
+
+
 
 
