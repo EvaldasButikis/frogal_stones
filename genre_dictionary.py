@@ -17,9 +17,13 @@ for people in content:
                 else: 
                     genre_list [genre] = 1
  
+with open("genre.csv", 'w') as file: 
+    writer = csv.writer(file)
+    writer.writerow(['Key', 'Value'])
+    for key, value in genre_list.items(): 
+         writer.writerow([key, value])
 
-with open ("genre.json") as file: 
-     json.dump ("genre_dump")
+
 
 
                     
