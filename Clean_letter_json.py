@@ -18,16 +18,16 @@ for file_name in file_list:
                     name= people['title']
                     genre= people["ontology/genre_label"]
                     year = people["ontology/activeYearsStartYear"]
-            
-                    dictio_per_year[name] = {
-                        'genre': genre,
-                        'start_year':year
-                        }
+                    dictio_per_year[name] ={
+                       'name': name,
+                       'genre': genre,
+                       'start_year':year
+                       }
 
                     
 print(dictio_per_year)
 
-with open('every_musician.json', 'w') as file:
+with open('every_musician_test.json', 'w') as file:
     json.dump(dictio_per_year, file, indent=4)
                         
 """csv_file = 'file.csv'
