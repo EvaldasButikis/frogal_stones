@@ -16,8 +16,20 @@ for people in content:
                     genre_list [genre] +=1
                 else: 
                     genre_list [genre] = 1
- 
-with open("genre.csv", 'w') as file: 
+#removing errors
+for genre in genre_list: 
+    if len('Value')<2: 
+         genre_list.pop("Value") 
+
+
+#total number of genres
+dictionary_val = 0
+for genre in genre_list: 
+     dic = genre_list[genre]
+     dictionary_val += dic
+print (dictionary_val)
+
+with open("genre.csv", 'w', encoding='utf-8') as file: 
     writer = csv.writer(file)
     writer.writerow(['Key', 'Value'])
     for key, value in genre_list.items(): 
