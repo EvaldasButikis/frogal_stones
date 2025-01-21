@@ -4,12 +4,9 @@ import csv
 with open("every_musician.json", encoding = 'utf-8') as file: 
     content = json.load (file)
 
-
+#creating dictionary
 dictio_per_year = {}
 
-# years = list(range(1930, 2021))
-# for year in years: 
-#     dictio_per_year[year] = {}
 
 for person in content.values():
     if type(person['start_year']) is list:
@@ -17,8 +14,12 @@ for person in content.values():
     year = int(person['start_year'])
     if year not in dictio_per_year:
         dictio_per_year[year] = {}
+    
+    #to avoid error of letters being counted under genre
     if type(person["genre"]) is not list:
         person["genre"] = [person["genre"]]
+    
+    #adding to dictionary
     for genre in person["genre"]:
         if genre in dictio_per_year[year]: 
             dictio_per_year[year][genre] +=1
