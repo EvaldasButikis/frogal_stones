@@ -1,5 +1,6 @@
 import json 
 import csv
+import itertools
 
 
 with open("every_musician.json", encoding = 'utf-8') as file: 
@@ -39,3 +40,17 @@ print(dictio_per_year)
 
 with open('rock_punk_genres_peryear.json', 'w') as file:
     json.dump(dictio_per_year, file, indent=4)
+
+
+output = []
+for year, by_genre in dictio_per_year.items():
+    line_dict = {"year": year}
+    for key in by_genre:
+        line_dict[key] = by_genre[key]
+    output.append(line_dict)
+print(output)
+
+with open('rock_punk_genres_peryear.csv', 'w') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=output[0].keys(), lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(output)
