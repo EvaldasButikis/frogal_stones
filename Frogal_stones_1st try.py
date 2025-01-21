@@ -2,38 +2,63 @@ import json
 import csv
 
 
-with open(f"People/A_people.json", encoding='utf-8') as file:
+with open("every_musician.json") as file:
         People_json_dict = json.load(file)
 
 dictio_per_year = {}
 
-for people in People_json_dict:
-    if "ontology/birthYear" in people:
-        if 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type_label' in people and any(job == "musical artist" for job in people['http://www.w3.org/1999/02/22-rdf-syntax-ns#type_label']):
-            year = people["ontology/birthYear"]
-            try:
-                year = int(year)
-            except:
-                continue
-            if year not in dictio_per_year:
-                dictio_per_year[year] = 0
-            elif year in dictio_per_year:
-                dictio_per_year[year]+=1
-                    
-print(dictio_per_year)
+genre_list= {
+     "punk": 0,
+     "rock":0
+}
 
-with open('Musician_per_Year.json', 'w') as file:
-    json.dump(dictio_per_year, file, indent=4)
+for people in People_json_dict.values():
+    year = people["start_year"]
+    try:
+         year=int(year)
+    except:
+         continue
+    if year not in dictio_per_year:
+        dictio_per_year[year] = 0
+    dictio_per_year[year]+=1
+    dictio_per_year[year]=str(dictio_per_year[year])
+
+    for year in dictio_per_year:
+        for genre in people["genre"]:
+            if genre.__contains__("rock"):
+                dictio_per_year[year]["rock"]+=1
+            if genre.__contains__("punk"):
+                dictio_per_year[year]["punk"]+=1
+              
+
+""" for ['start_year'] in people:
+        
+        for genre in people["genre"]:
+            if genre in dictio_per_year:
+                dictio_per_year [genre] +=1
+            else: 
+                dictio_per_year [genre] = 1
+"""
+                        
+print(dictio_per_year)
+print(genre_list)
+
+
+
+
+"""
+with open('Musician_per_ear.json', 'w') as file:
+    json.dump(dictio_per_year, file, indent=4)"""
                         
 csv_file = 'file.csv'
 
-with open("csv_nb_muscisian_per_year.csv", 'w', newline='') as file:
+"""with open("muscisian_per_startyear.csv", 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['Key', 'Value'])
 	
     # Write data
     for key, value in dictio_per_year.items():
-        writer.writerow([key, value])
+        writer.writerow([key, value])"""
 
             
              
