@@ -3,7 +3,7 @@ import csv
 import os
 
 
-file_list = os.listdir("C:/Users/Yunam/ShellSandbox/RSandbox/Uni_ranks/frogal_stone/People")
+file_list = os.listdir("People")
 
 
 dictio_per_year = {}
@@ -25,7 +25,6 @@ for file_name in file_list:
                        }
 
                     
-print(dictio_per_year)
 
 with open('clean_data.json', 'w') as file:
     json.dump(dictio_per_year, file, indent=4)
