@@ -14,8 +14,8 @@ relative_rock_punk_musicians <- read.csv("rock_punk_genres_peryear.csv") |>
 # Plots line graph percentage of rock and punk musicians starting over the decades relative to total number of rock-punk musicians
 ggplot(data = relative_rock_punk_musicians) +
   aes(
-    x = year, # Starting years of punk and rock musicians
-    y = relative_musicians / 100, # Number of musicians
+    x = year,
+    y = relative_musicians / 100,
     group = `genre`,
     color = `genre`
   )+
