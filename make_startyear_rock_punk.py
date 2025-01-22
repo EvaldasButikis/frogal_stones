@@ -31,13 +31,13 @@ for person in content.values():
     #adding to dictionary
     for genre in person["genre"]:
         genre = genre.lower()
-        if genre.__contains__("rock"):
+        if genre.__contains__("rock") and not genre.__contains__("punk") :
             dictio_per_year[year]["rock"]+=1
         if genre.__contains__("punk"):
             dictio_per_year[year]["punk"]+=1
         if genre.__contains__("metal"): 
             dictio_per_year[year]["metal"]+=1
-  
+
 
 print(dictio_per_year)
 
@@ -53,7 +53,7 @@ for year, by_genre in dictio_per_year.items():
     output.append(line_dict)
 print(output)
 
-with open('startyear_rock_punk_metal.csv', 'w') as csvfile:
+with open('startyear_rock_punk_metal2.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=output[0].keys(), lineterminator="\n")
     writer.writeheader()
     writer.writerows(output)
