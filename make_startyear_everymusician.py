@@ -7,11 +7,6 @@ with open("clean_data.json") as file:
 
 dictio_per_year = {}
 
-genre_list= {
-     "punk": 0,
-     "rock":0
-}
-
 for people in People_json_dict.values():
     year = people["start_year"]
     try:

@@ -10,7 +10,7 @@ with open("clean_data.json", encoding = 'utf-8') as file:
 dictio_per_year = {}
 
 #inputing which genres you want to look at: 
-genre1 = input ("What is the first genre?")
+genre1 = input("What is the first genre?")
 genre2 = input("What is the second genre?")
 genre1 = genre1.lower()
 genre2 = genre2.lower()
@@ -18,16 +18,26 @@ genre2 = genre2.lower()
 csvname = input("What should the csv be called?")
 
 for person in content.values():
+    year = person["start_year"]
+    try:
+         year=int(year)
+    except:
+         continue
+    if year not in dictio_per_year:
+        dictio_per_year[year] = {
+            "total" : 0,
+            genre1: 0,
+            genre2: 0
+        }
+
+    dictio_per_year[year]["total"]+=1
+
+
     if type(person['start_year']) is list:
         person['start_year'] = person['start_year'][0]
 
     year = int(person['start_year'])
 #adding years to dictionary
-    if year not in dictio_per_year:
-        dictio_per_year[year] = {
-            genre1: 0,
-            genre2: 0
-        }
     
     #adding numbers for each genre to the dictionary
     for genre in person["genre"]:
