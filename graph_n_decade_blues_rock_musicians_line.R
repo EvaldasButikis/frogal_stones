@@ -2,9 +2,9 @@ library(tidyverse)
 library(ggplot2)
 
 # dataframe for graphing blues & rock musicians per decades
-n_decade_blues_rock_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
+n_decade_blues_rock_musicians <- read.csv("Data_final.csv") |>
   pivot_longer(
-    cols = c(rock, blues),
+    cols = c(Rock, Blues),
     names_to = "genre",
     values_to = "number_of_musicians"
   ) |>

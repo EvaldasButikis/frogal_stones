@@ -2,22 +2,22 @@ library(tidyverse)
 library(ggplot2)
 
 # dataframe for graphing rock over time, relative to the total rock & blues musicians 
-pr_blues_rock_musicians <- read.csv("Data_final.csv") |>
-  mutate(total_rock_parent_musicians = Rock + Blues) |>
+pr_parent_punk_subgenres_musicians <- read.csv("Punk_subgenres.csv") |>
+  mutate(total_rock_parent_musicians = garage.rock + punk + post_hardcore) |>
   pivot_longer(
-    cols = c(Blues, Rock),
+    cols = c(garage.rock, punk, post_hardcore),
     names_to = "genre",
     values_to = "number_of_musicians"
   ) |>
   mutate(pr_musicians = (number_of_musicians / total_rock_parent_musicians) * 100 )
 
 # Plots line graph percentage of rock & blues musicians start years relative to total number of blues-rock musicians
-ggplot(data = pr_blues_rock_musicians) +
+ggplot(data = pr_parent_punk_subgenres_musicians) +
   aes(
     x = year,
     y = pr_musicians / 100,
     group = genre,
-    fill = genre 
+    color = genre 
   )+
   labs(
     #title = Number of musicians over the decades, from 1900-2015.
@@ -31,17 +31,17 @@ ggplot(data = pr_blues_rock_musicians) +
     axis.text = element_text(size = 12)
   ) +
   scale_x_continuous(
-    limits = c(1920, 2015),
-    breaks = seq(1920, 2015, 10)
+    limits = c(1950, 2015),
+    breaks = seq(1950, 2015, 10)
   ) +
   scale_y_continuous(
     labels = scales::label_percent()
   ) +
-  geom_col(width = 1) +
-  scale_fill_manual(
-    values = c("#00BFC4", "#F8766D"),
-    labels = c("Blues", "Rock"),
+  geom_point(size = 2) +
+  geom_line(size = 1) +
+  scale_color_discrete(
+    labels = c("Garage Rock", "Post-Hardcore", "Punk"),
     name = "Genre"
   )
 
-ggsave("pr_parent_blues_rock_musicians_column.pdf")
+ggsave("pr_parent_punk_subgenres_musicians_line.pdf")

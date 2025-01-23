@@ -1,7 +1,5 @@
 *.json
 
-*.pdf
-
 *.Rhistory
 *.Rdata
 *.DS_Store
