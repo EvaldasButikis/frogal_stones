@@ -7,7 +7,7 @@ file_list_every_letter = os.listdir("People")
 
 #making an empty dictionary to input the cleaned data
 musicians = {}
-
+punkgenres = ["punk", "post-hardcore", "garage rock","noise rock"]
 #loading the file for each letter 
 for file_name in file_list_every_letter:
     with open(f"People/{file_name}", encoding='utf-8') as file:
@@ -28,12 +28,24 @@ for file_name in file_list_every_letter:
                         genres = [genres]
 
                     clean_genres = []
+                    genre_group = []
+                    
                     for genre in genres:
+                        genre = genre.lower()
                         clean_genres.append(genre.replace("-", "_"))
-
+                        if "punk" in genre or genre in punkgenres: 
+                            genre_group.append("Punk")
+                        elif "rock" in genre:
+                            genre_group.append("Rock")
+                        elif "metal" in genre: 
+                            genre_group.append("Metal")
+                        elif "blues" in genre:
+                            genre_group.append("Blues")
+                    genre_group = set(genre_group)
                     musicians[name] ={
                        'name': name,
                        'genre': clean_genres,
+                       'genre_group': list(genre_group),
                        'start_year':year
                        }
 
