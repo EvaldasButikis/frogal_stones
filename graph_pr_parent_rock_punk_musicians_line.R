@@ -2,7 +2,7 @@ library(tidyverse)
 library(ggplot2)
 
 # dataframe for graphing rock & punk musicians over time, relative to the total of rock & punk musicians
-relative_rock_punk_musicians <- read.csv("rock_punk_genres_peryear.csv") |>
+relative_rock_punk_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
   mutate(total_rock_punk = rock + punk) |>
   pivot_longer(
     cols = c(rock, punk),
@@ -31,18 +31,18 @@ ggplot(data = relative_rock_punk_musicians) +
   theme(
     axis.text = element_text(size = 12)
   ) +
-  scale_color_discrete(
-    name = "Genre",
-    labels = c("Punk", "Rock")
-  ) +
   scale_x_continuous(
-    limits = c(1940, 2020),
-    breaks = seq(1940, 2020, 10)
+    limits = c(1940, 2015),
+    breaks = seq(1940, 2015, 10)
   ) +
   scale_y_continuous(
     labels = scales::label_percent()
   ) +
   geom_point(size = 2) +
-  geom_line(size = 1)
+  geom_line(size = 1)+
+  scale_color_manual(
+    values = c("#7CAE00", "#F8766D" ),
+    labels = c("Punk", "Rock" )
+  )
 
-ggsave("n_relative_rock_punk_musicians_line.pdf")
+ggsave("pr_parent_rock_punk_musicians_line.pdf")
