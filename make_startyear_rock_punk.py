@@ -30,12 +30,12 @@ for person in content.values():
     
     #adding to dictionary
     for genre in person["genre"]:
-        genre = genre.lower()
-        if genre.__contains__("rock") and not genre.__contains__("punk") :
+
+        if "rock" in genre.lower() and not "punk" in genre.lower():
             dictio_per_year[year]["rock"]+=1
-        if genre.__contains__("punk"):
+        if "punk" in genre.lower():
             dictio_per_year[year]["punk"]+=1
-        if genre.__contains__("metal"): 
+        if "metal" in genre.lower(): 
             dictio_per_year[year]["metal"]+=1
 
 
