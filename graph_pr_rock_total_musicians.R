@@ -2,8 +2,8 @@ library(tidyverse)
 library(ggplot2)
 
 # dataframe for graphing rock over time, relative to the total musicians 
-pr_rock_total_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
-  mutate(pr_rock_parent_musicians = (rock / total) * 100 )
+pr_rock_total_musicians <- read.csv("Data_final.csv") |>
+  mutate(pr_rock_parent_musicians = (Rock / total) * 100 )
 
 # Plots line graph percentage of rock and punk musicians starting over the decades relative to total number of rock-punk musicians
 ggplot(data = pr_rock_total_musicians) +

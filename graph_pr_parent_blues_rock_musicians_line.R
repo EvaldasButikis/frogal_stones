@@ -2,10 +2,10 @@ library(tidyverse)
 library(ggplot2)
 
 # dataframe for graphing rock over time, relative to the total rock & blues musicians 
-pr_blues_rock_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
-  mutate(total_rock_parent_musicians = rock + blues) |>
+pr_blues_rock_musicians <- read.csv("Data_final.csv") |>
+  mutate(total_rock_parent_musicians = Rock + Blues) |>
   pivot_longer(
-    cols = c(blues, rock),
+    cols = c(Blues, Rock),
     names_to = "genre",
     values_to = "number_of_musicians"
   ) |>
