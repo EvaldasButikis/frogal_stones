@@ -10,7 +10,7 @@ with open("clean_data.json", encoding = 'utf-8') as file:
 genre_per_year = {}
 
 #inputing which genres you want to look at: 
-genres_of_interest = ["rock", "punk", "blue", "metal"]
+genres_of_interest = [ "blue","punk", "post-hardcore", "metal"]
 
 #for every person in the muscian database
 for person in every_musician.values():
@@ -23,7 +23,8 @@ for person in every_musician.values():
     #adding a key for every year in the dictionary
     if year not in genre_per_year:
         genre_per_year[year] = {
-            "total" : 0
+            "total" : 0,
+            "rock":0
         }
     #adding a key for every genre of interest under every year
         for genre in genres_of_interest:
@@ -37,6 +38,11 @@ for person in every_musician.values():
         person["genre"] = [person["genre"]]
 
     #If any of the genres in the list mention target genre, add 1 to the corresponding key in the dictionary
+    
+    if any("punk" in genre.lower() for genre in person["genre"]):
+        genre_per_year[year]["punk"]+=1
+        
+    
     for genre in genres_of_interest:
         if any(genre in genres.lower() for genres in person["genre"]):
             genre_per_year[year][genre] += 1
@@ -47,11 +53,11 @@ for year, by_genre in genre_per_year.items():
     line_dict = {"year": year}
     for key in by_genre:
         line_dict[key] = by_genre[key]
-    output.append(line_dict)
+    output.append(line_dict) 
 print(output)
 
 #outputting to csv
-with open("Data_rock_blues_metal_punk.csv", 'w') as csvfile:
+with open("Data_rock_blues_post-hardcore_punk_metal.csv", 'w') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=output[0].keys(), lineterminator="\n")
     writer.writeheader()
     writer.writerows(output)
