@@ -2,11 +2,12 @@ library ('tidyverse')
 
 data_n_genres <- read_csv('Data_rock_punk_blues_metal.csv')|>
   pivot_longer( 
-    cols = c(metal, punk, rock),
+    cols = c(rock, total),
     names_to = "genre",
     values_to = "number of musicians")
+print(data_n_genres)
 
-ggplot(data = data_several) +
+ggplot(data = data_n_genres) +
   theme_light() +
   aes(x = year,
       y = `number of musicians`, 
@@ -33,11 +34,13 @@ ggplot(data = data_several) +
     )+
     geom_point(size = 2)+
     geom_line(size = 1)+
-    scale_color_manual(values = c("#7CAE00", "#C77CFF", "#F8766D")
+    scale_color_manual(values = c("#F8766D", "#000000")
               ,
-                   labels = c("Metal", "Punk", "Rock")
-      )+
-  ggsave('n_musicians_rock_punk_metal.pdf')
+                   labels = c( "Rock", "All genres")
+      )
+
+#+
+#  ggsave('n_musicians_rock_total.pdf')
   
 
 
