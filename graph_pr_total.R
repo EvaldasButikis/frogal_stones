@@ -29,15 +29,18 @@ ggplot(data = data_pr_genres) +
     name = "Genre"
     )+
   scale_x_continuous(
-    limits = c(1940, 2010),
-    breaks = seq(1940, 2020, 10)
+    limits = c(1900, 2010),
+    breaks = seq(1900, 2020, 10)
   )+
   scale_y_continuous(
     labels = scales::label_percent()
     )+
   geom_point(size = 2)+
   geom_line(size = 1)+
-  scale_color_manual(values = c("#00BFC4","#F8766D"),
-                     labels = c("Blues","Rock")
+  scale_color_manual(values = c("#7CAE00","#C77CFF"),
+                     labels = c( "Metal","Punk")
                      )
+
+#+
+#ggsave('pr_total_rock_metal_punk.pdf')
 

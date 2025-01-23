@@ -1,8 +1,8 @@
 library(tidyverse)
 library(ggplot2)
 
-# dataframe for graphing rock & punk musicians over decades
-decade_rock_punk_musicians <- read.csv("rock_punk_genres_peryear.csv") |>
+# dataframe for graphing rock & punk musicians per decades
+n_decade_rock_punk_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
   pivot_longer(
     cols = c(rock, punk),
     names_to = "genre",
@@ -12,11 +12,11 @@ decade_rock_punk_musicians <- read.csv("rock_punk_genres_peryear.csv") |>
   group_by(decade, genre) |>
   summarise(number_of_musicians = sum(number_of_musicians))
 
-# plots line graph of number of rock-punk musicians per decade
-ggplot(data = decade_rock_punk_musicians) +
+# Plots number of rock and punk musicians starting per decades
+ggplot(data = n_decade_rock_punk_musicians) +
   aes(
-    x = decade, # Starting years of punk and rock musicians
-    y = number_of_musicians, # Number of musicians
+    x = decade,
+    y = number_of_musicians,
     group = `genre`,
     color = `genre`
   )+
@@ -32,15 +32,15 @@ ggplot(data = decade_rock_punk_musicians) +
   theme(
     axis.text = element_text(size = 12)
   ) +
-  scale_color_discrete(
-    name = "Genre",
-    labels = c("Punk", "Rock")
-  ) +
   scale_x_continuous(
-    limits = c(1940, 2020),
-    breaks = seq(1940, 2020, 10)
+    limits = c(1940, 2010),
+    breaks = seq(1940, 2010, 10)
   ) +
   geom_point(size = 2) +
-  geom_line(size = 1)
+  geom_line(size = 1)+
+  scale_color_manual(
+    values = c("#7CAE00", "#F8766D" ),
+    labels = c("Punk", "Rock" )
+  )
 
-ggsave("n_rock_punk_musicians_per_decades.pdf")
+ggsave("n_decade_rock_punk_musicians_line.pdf")

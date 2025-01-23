@@ -1,10 +1,10 @@
 library(tidyverse)
 library(ggplot2)
 
-# dataframe for graphing rock & total musicians per decade
-n_decade_rock_total_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
+# dataframe for graphing blues & rock musicians per decades
+n_decade_blues_rock_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
   pivot_longer(
-    cols = c(rock, total),
+    cols = c(rock, blues),
     names_to = "genre",
     values_to = "number_of_musicians"
   ) |>
@@ -12,8 +12,8 @@ n_decade_rock_total_musicians <- read.csv("Data_rock_punk_blues_metal.csv") |>
   group_by(decade, genre) |>
   summarise(number_of_musicians = sum(number_of_musicians))
 
-# plots line graph of number of rock & total musicians per decade
-ggplot(data = n_decade_rock_total_musicians) +
+# Plots number of blues & rock musicians starting per decades
+ggplot(data = n_decade_blues_rock_musicians) +
   aes(
     x = decade,
     y = number_of_musicians,
@@ -33,14 +33,14 @@ ggplot(data = n_decade_rock_total_musicians) +
     axis.text = element_text(size = 12)
   ) +
   scale_x_continuous(
-    limits = c(1940, 2010),
-    breaks = seq(1940, 2010, 10)
+    limits = c(1900, 2010),
+    breaks = seq(1900, 2010, 10)
   ) +
   geom_point(size = 2) +
-  geom_line(size = 1) +
+  geom_line(size = 1)+
   scale_color_manual(
-    values = c("#F8766D", "#000000"),
-    labels = c("Rock", "All")
+    values = c("#00BFC4", "#F8766D" ),
+    labels = c("Blues", "Rock" )
   )
 
-ggsave("n_decade_rock_total_musicians_line.pdf")
+ggsave("n_decade_blues_rock_musicians_line.pdf")
