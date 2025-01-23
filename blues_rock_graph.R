@@ -1,12 +1,12 @@
 library ('tidyverse')
 
-data_several <- read_csv('startyear_rock_punk_metal.csv')|>
+data_bluesrock <- read_csv('blues_rock_graph.csv')|>
   pivot_longer( 
-    cols = c(rock, punk, metal),
+    cols = c(rock, blues),
     names_to = "genre",
     values_to = "number of musicians")
 
-ggplot(data = data_several) +
+ggplot(data = data_bluesrock) +
   theme_light() +
   aes(x = year,
       y = `number of musicians`, 
@@ -18,10 +18,9 @@ ggplot(data = data_several) +
     color = "Genre"
   )+
   scale_x_continuous(
-    limits = c(1940, 2010),
-    breaks = seq(1940, 2020, 10)
-    )+
-    geom_point(size = 2)+
-    geom_line(size = 1)
-  
+    limits = c(1900, 2010),
+    breaks = seq(1900, 2010, 10)
+  )+
+  geom_point(size = 2)+
+  geom_line(size = 1)
 

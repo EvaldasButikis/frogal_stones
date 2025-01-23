@@ -21,11 +21,19 @@ for file_name in file_list_every_letter:
                 if "ontology/genre_label" in person:
                     #adding all relevant information to the dictionary
                     name= person['title']
-                    genre= person["ontology/genre_label"]
+                    genres= person["ontology/genre_label"]
                     year = person["ontology/activeYearsStartYear"]
+                    
+                    if type(genres) is not list:
+                        genres = [genres]
+
+                    clean_genres = []
+                    for genre in genres:
+                        clean_genres.append(genre.replace("-", "_"))
+
                     musicians[name] ={
                        'name': name,
-                       'genre': genre,
+                       'genre': clean_genres,
                        'start_year':year
                        }
 
